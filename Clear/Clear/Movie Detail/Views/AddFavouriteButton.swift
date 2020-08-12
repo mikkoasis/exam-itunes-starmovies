@@ -19,10 +19,54 @@ class AddFavouriteButton: UIButton {
   required init?(coder: NSCoder) {
     super.init(coder: coder)
 
-    highlightOverlay = UIView(frame: CGRect(origin: .zero, size: frame.size))
+    addHighlightOverlay()
+  }
+
+  private func addHighlightOverlay() {
+    highlightOverlay = UIView()
     highlightOverlay.backgroundColor = UIColor(named: "ButtonHighlightOverlayColor")
     highlightOverlay.isHidden = true
-    self.addSubview(highlightOverlay)
+    addSubview(highlightOverlay)
+
+    highlightOverlay.translatesAutoresizingMaskIntoConstraints = false
+
+    let leadingConstraint = NSLayoutConstraint(
+      item: highlightOverlay as Any,
+      attribute: .leading,
+      relatedBy: .equal,
+      toItem: self,
+      attribute: .leading,
+      multiplier: 1,
+      constant: 0)
+
+    let trailingConstraint = NSLayoutConstraint(
+      item: highlightOverlay as Any,
+      attribute: .trailing,
+      relatedBy: .equal,
+      toItem: self,
+      attribute: .trailing,
+      multiplier: 1,
+      constant: 0)
+
+    let topConstraint = NSLayoutConstraint(
+      item: highlightOverlay as Any,
+      attribute: .top,
+      relatedBy: .equal,
+      toItem: self,
+      attribute: .top,
+      multiplier: 1,
+      constant: 0)
+
+    let bottomConstraint = NSLayoutConstraint(
+      item: highlightOverlay as Any,
+      attribute: .bottom,
+      relatedBy: .equal,
+      toItem: self,
+      attribute: .bottom,
+      multiplier: 1,
+      constant: 0)
+
+    addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
   }
 
   override func awakeFromNib() {
