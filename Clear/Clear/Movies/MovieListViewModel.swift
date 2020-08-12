@@ -76,4 +76,11 @@ final class MovieListViewModel {
     }
     return MovieCellViewModel(with: self.movies.value[index])
   }
+
+  func movieDetailViewModelForMovie(at index: Int) -> MovieDetailViewModel? {
+    if index >= self.movies.value.count {
+      return nil
+    }
+    return MovieDetailViewModel(with: self.movies.value[index])
+  }
 }

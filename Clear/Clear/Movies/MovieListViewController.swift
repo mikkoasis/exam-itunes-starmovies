@@ -76,6 +76,16 @@ class MovieListViewController: UIViewController {
     viewModel.loadMoreMovies(with: searchTerm)
   }
 
+  private func presentMovieDetailViewController(with movieDetailViewModel: MovieDetailViewModel) {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    if let vc = storyboard.instantiateViewController(
+      withIdentifier: "MovieDetailViewController") as? MovieDetailViewController {
+      let nvc = UINavigationController(rootViewController: vc)
+      vc.viewModel = movieDetailViewModel
+      present(nvc, animated: true)
+    }
+  }
+
   @objc private func handleRefreshControl() {
     reloadMovies()
   }
@@ -105,9 +115,16 @@ extension MovieListViewController: UITableViewDataSource {
 extension MovieListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+
+    if let movieDetailViewModel = viewModel.movieDetailViewModelForMovie(at: indexPath.row) {
+      presentMovieDetailViewController(with: movieDetailViewModel)
+    }
   }
 
-  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+  func tableView(
+    _ tableView: UITableView,
+    willDisplay cell: UITableViewCell,
+    forRowAt indexPath: IndexPath) {
     if indexPath.row == viewModel.moviesCount - 1 {
       loadMoreMovies()
     }
