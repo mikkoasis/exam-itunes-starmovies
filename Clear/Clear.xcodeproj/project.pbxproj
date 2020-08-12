@@ -129,7 +129,6 @@
 				C0EDB15B24E3DDED007E5CF7 /* Models */,
 				C0EDB15324E3CFB9007E5CF7 /* API */,
 				C067764624E3C117003DCEC4 /* AppDelegate.swift */,
-				C067766824E3C415003DCEC4 /* Supporting Files */,
 				C067764C24E3C117003DCEC4 /* Main.storyboard */,
 				C067764F24E3C118003DCEC4 /* Assets.xcassets */,
 				C067765124E3C118003DCEC4 /* LaunchScreen.storyboard */,
@@ -147,13 +146,6 @@
 				C09D1C2224E43F2500808725 /* MovieListViewModelTests.swift */,
 			);
 			path = ClearTests;
-			sourceTree = "<group>";
-		};
-		C067766824E3C415003DCEC4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C09D1C1F24E439B300808725 /* Views */ = {
