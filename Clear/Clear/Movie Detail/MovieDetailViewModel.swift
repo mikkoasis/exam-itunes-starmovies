@@ -29,6 +29,6 @@ final class MovieDetailViewModel {
     var imageURLString = movie.artworkUrl100
     imageURLString = imageURLString.replacingOccurrences(of: "100x100", with: "1000x1000")
 
-    imageURL.accept(URL(string: imageURLString) ?? URL(string: movie.artworkUrl100))
+    imageURL.accept(URL(string: imageURLString))
   }
 }

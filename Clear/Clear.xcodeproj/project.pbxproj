@@ -22,6 +22,7 @@
 		C09D1C2E24E45C0800808725 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09D1C2D24E45C0800808725 /* MovieDetailView.swift */; };
 		C09D1C3024E45C8100808725 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09D1C2F24E45C8100808725 /* MovieDetailViewModel.swift */; };
 		C09D1C3324E4653A00808725 /* AddFavouriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09D1C3224E4653A00808725 /* AddFavouriteButton.swift */; };
+		C0C4AC8224E48896001F5101 /* MovieDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4AC8124E48896001F5101 /* MovieDetailViewModelTests.swift */; };
 		C0EDB15524E3CFF7007E5CF7 /* iTunesAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EDB15424E3CFF7007E5CF7 /* iTunesAPIService.swift */; };
 		C0EDB15A24E3D9DE007E5CF7 /* iTunesAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EDB15924E3D9DE007E5CF7 /* iTunesAPIRouter.swift */; };
 		C0EDB15D24E3DDFC007E5CF7 /* iTunesMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EDB15C24E3DDFC007E5CF7 /* iTunesMovie.swift */; };
@@ -66,6 +67,7 @@
 		C09D1C2D24E45C0800808725 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		C09D1C2F24E45C8100808725 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 		C09D1C3224E4653A00808725 /* AddFavouriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavouriteButton.swift; sourceTree = "<group>"; };
+		C0C4AC8124E48896001F5101 /* MovieDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModelTests.swift; sourceTree = "<group>"; };
 		C0EDB15424E3CFF7007E5CF7 /* iTunesAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesAPIService.swift; sourceTree = "<group>"; };
 		C0EDB15924E3D9DE007E5CF7 /* iTunesAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesAPIRouter.swift; sourceTree = "<group>"; };
 		C0EDB15C24E3DDFC007E5CF7 /* iTunesMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesMovie.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				C067765D24E3C118003DCEC4 /* ClearTests.swift */,
 				C067765F24E3C118003DCEC4 /* Info.plist */,
 				C09D1C2224E43F2500808725 /* MovieListViewModelTests.swift */,
+				C0C4AC8124E48896001F5101 /* MovieDetailViewModelTests.swift */,
 			);
 			path = ClearTests;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0C4AC8224E48896001F5101 /* MovieDetailViewModelTests.swift in Sources */,
 				C067765E24E3C118003DCEC4 /* ClearTests.swift in Sources */,
 				C09D1C2324E43F2500808725 /* MovieListViewModelTests.swift in Sources */,
 				C09D1C2624E4478B00808725 /* MockiTunesAPIService.swift in Sources */,
