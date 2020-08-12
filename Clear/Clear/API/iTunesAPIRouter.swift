@@ -12,11 +12,11 @@ import Foundation
 public enum iTunesAPIRouter: URLRequestConvertible {
   static let baseURLPath = "https://itunes.apple.com"
 
-  case movie(term: String, limit: Int, offset: Int)
+  case searchMovies(term: String, limit: Int, offset: Int)
 
   var method: HTTPMethod {
     switch self {
-    case .movie:
+    case .searchMovies:
       return .get
     }
   }
@@ -30,7 +30,7 @@ public enum iTunesAPIRouter: URLRequestConvertible {
 
   var parameters: [String: Any] {
     switch self {
-    case .movie(let term, let limit, let offset):
+    case .searchMovies(let term, let limit, let offset):
       var parameters: [String: Any] = ["media": "movie", "country": "au"]
       parameters["term"] = term
       parameters["limit"] = limit

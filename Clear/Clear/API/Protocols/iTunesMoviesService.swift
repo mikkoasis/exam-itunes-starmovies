@@ -9,7 +9,7 @@
 import Foundation
 
 protocol iTunesMoviesService {
-  func getMovies(
+  func searchMovies(
     search: String,
     limit: Int,
     offset: Int,

@@ -12,12 +12,12 @@ import Foundation
 final class iTunesAPIService {}
 
 extension iTunesAPIService: iTunesMoviesService {
-  func getMovies(
+  func searchMovies(
     search: String,
     limit: Int = 50,
     offset: Int = 0,
     completion: @escaping ([iTunesMovie]) -> Void) {
-    AF.request(iTunesAPIRouter.movie(term: search, limit: limit, offset: offset))
+    AF.request(iTunesAPIRouter.searchMovies(term: search, limit: limit, offset: offset))
       .validate()
       .responseDecodable(of: itunesMoviesData.self) { response in
         switch response.result {
