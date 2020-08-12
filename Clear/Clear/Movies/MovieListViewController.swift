@@ -26,6 +26,7 @@ class MovieListViewController: UIViewController {
 
     setupTableViewRefresh()
     setupBindings()
+    observeFavourites()
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +35,10 @@ class MovieListViewController: UIViewController {
     if viewModel.moviesCount == 0 {
       reloadMovies()
     }
+  }
+
+  deinit {
+    NotificationCenter.default.removeObserver(self)
   }
 
   private func setupTableViewRefresh() {
@@ -68,6 +73,14 @@ class MovieListViewController: UIViewController {
       .disposed(by: disposeBag)
   }
 
+  private func observeFavourites() {
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(reloadTable),
+      name: FavouriteMoviesHelper.Constants.NotificationName.didUpdate,
+      object: nil)
+  }
+
   private func reloadMovies() {
     viewModel.reloadMovies(with: searchTerm)
   }
@@ -88,6 +101,12 @@ class MovieListViewController: UIViewController {
 
   @objc private func handleRefreshControl() {
     reloadMovies()
+  }
+
+  @objc private func reloadTable() {
+    if let visibleIndexPaths = tableView.indexPathsForVisibleRows {
+      tableView.reloadRows(at: visibleIndexPaths, with: .none)
+    }
   }
 }
 

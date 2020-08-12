@@ -14,6 +14,7 @@ final class MovieCellViewModel {
   private(set) var genre = ""
   private(set) var price = ""
   private(set) var imageURL: URL?
+  private(set) var isFavourite = false
 
   private static let numberFormatter = NumberFormatter()
 
@@ -36,5 +37,7 @@ final class MovieCellViewModel {
     } else {
       imageURL = nil
     }
+
+    isFavourite = FavouriteMoviesHelper.isFavourite(movieId: movie.trackId)
   }
 }

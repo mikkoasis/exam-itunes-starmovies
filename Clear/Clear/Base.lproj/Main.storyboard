@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EAB-gY-VYq">
-                                <rect key="frame" x="0.0" y="96" width="375" height="571"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="eEa-1a-c07" customClass="MovieListFooterView" customModule="Clear" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="137" width="375" height="60"/>
@@ -58,36 +58,44 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsV-Sv-1Ye">
-                                                    <rect key="frame" x="86" y="8" width="281" height="20.5"/>
+                                                    <rect key="frame" x="86" y="8" width="247" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9k-Ef-4D9">
-                                                    <rect key="frame" x="86" y="32.5" width="281" height="18"/>
+                                                    <rect key="frame" x="86" y="32.5" width="247" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUn-bp-h6Y">
-                                                    <rect key="frame" x="86" y="54.5" width="281" height="18.5"/>
+                                                    <rect key="frame" x="86" y="54.5" width="247" height="18.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="★" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cne-5b-7W1">
+                                                    <rect key="frame" x="341" y="25.5" width="26" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="bsV-Sv-1Ye" firstAttribute="top" secondItem="oZd-5o-Uhh" secondAttribute="top" constant="8" id="0mD-ku-NJh"/>
-                                                <constraint firstAttribute="trailing" secondItem="bsV-Sv-1Ye" secondAttribute="trailing" constant="8" id="0yk-rn-hKN"/>
                                                 <constraint firstAttribute="bottom" secondItem="nUn-bp-h6Y" secondAttribute="bottom" constant="8" id="14k-kE-vwe"/>
-                                                <constraint firstAttribute="trailing" secondItem="nUn-bp-h6Y" secondAttribute="trailing" constant="8" id="ChH-FQ-lX8"/>
                                                 <constraint firstItem="58O-Wh-MrV" firstAttribute="centerY" secondItem="oZd-5o-Uhh" secondAttribute="centerY" id="IYi-bV-sGm"/>
-                                                <constraint firstAttribute="trailing" secondItem="d9k-Ef-4D9" secondAttribute="trailing" constant="8" id="RLF-6K-hn8"/>
+                                                <constraint firstItem="Cne-5b-7W1" firstAttribute="centerY" secondItem="oZd-5o-Uhh" secondAttribute="centerY" id="Jtc-aD-ck4"/>
+                                                <constraint firstItem="Cne-5b-7W1" firstAttribute="leading" secondItem="bsV-Sv-1Ye" secondAttribute="trailing" constant="8" id="LyR-gI-Hso"/>
                                                 <constraint firstItem="bsV-Sv-1Ye" firstAttribute="leading" secondItem="58O-Wh-MrV" secondAttribute="trailing" constant="8" id="WAQ-Oc-8gv"/>
+                                                <constraint firstItem="Cne-5b-7W1" firstAttribute="leading" secondItem="d9k-Ef-4D9" secondAttribute="trailing" constant="8" id="Z4h-S9-XRy"/>
                                                 <constraint firstItem="d9k-Ef-4D9" firstAttribute="top" secondItem="bsV-Sv-1Ye" secondAttribute="bottom" constant="4" id="aaw-N7-JhJ"/>
                                                 <constraint firstItem="nUn-bp-h6Y" firstAttribute="leading" secondItem="d9k-Ef-4D9" secondAttribute="leading" id="e4f-67-gP8"/>
                                                 <constraint firstItem="nUn-bp-h6Y" firstAttribute="top" secondItem="d9k-Ef-4D9" secondAttribute="bottom" constant="4" id="kMO-qK-X9s"/>
                                                 <constraint firstItem="d9k-Ef-4D9" firstAttribute="leading" secondItem="bsV-Sv-1Ye" secondAttribute="leading" id="r2Y-ET-t8Q"/>
+                                                <constraint firstAttribute="trailing" secondItem="Cne-5b-7W1" secondAttribute="trailing" constant="8" id="v4O-mR-f4A"/>
+                                                <constraint firstItem="Cne-5b-7W1" firstAttribute="leading" secondItem="nUn-bp-h6Y" secondAttribute="trailing" constant="8" id="w14-cw-MdK"/>
                                                 <constraint firstItem="58O-Wh-MrV" firstAttribute="leading" secondItem="oZd-5o-Uhh" secondAttribute="leading" constant="8" id="wVa-ep-zhp"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -97,6 +105,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="favouriteLabel" destination="Cne-5b-7W1" id="IXc-d7-7bB"/>
                                             <outlet property="genreLabel" destination="d9k-Ef-4D9" id="X61-op-jQE"/>
                                             <outlet property="movieImageView" destination="58O-Wh-MrV" id="uHk-GS-Xhc"/>
                                             <outlet property="priceLabel" destination="nUn-bp-h6Y" id="Rx9-D2-WDb"/>

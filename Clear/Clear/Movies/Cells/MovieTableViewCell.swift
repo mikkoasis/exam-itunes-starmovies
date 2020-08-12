@@ -23,6 +23,7 @@ class MovieTableViewCell: UITableViewCell {
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var genreLabel: UILabel!
   @IBOutlet var priceLabel: UILabel!
+  @IBOutlet var favouriteLabel: UILabel!
 
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -33,6 +34,7 @@ class MovieTableViewCell: UITableViewCell {
     titleLabel.text = viewModel.title
     genreLabel.text = viewModel.genre
     priceLabel.text = viewModel.price
+    favouriteLabel.isHidden = !viewModel.isFavourite
 
     if let imageURL = viewModel.imageURL {
       movieImageView.af.setImage(withURL: imageURL)

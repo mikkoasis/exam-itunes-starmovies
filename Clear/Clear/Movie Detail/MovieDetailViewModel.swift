@@ -15,6 +15,7 @@ final class MovieDetailViewModel {
   let title = BehaviorRelay<String>(value: "")
   let imageURL = BehaviorRelay<URL?>(value: nil)
   let movieDescription = BehaviorRelay<String>(value: "")
+  let isFavourite = BehaviorRelay<Bool>(value: false)
 
   init(with movie: iTunesMovie) {
     self.movie = movie
@@ -30,5 +31,20 @@ final class MovieDetailViewModel {
     imageURLString = imageURLString.replacingOccurrences(of: "100x100", with: "1000x1000")
 
     imageURL.accept(URL(string: imageURLString))
+
+    reloadIsFavourite()
+  }
+
+  private func reloadIsFavourite() {
+    isFavourite.accept(FavouriteMoviesHelper.isFavourite(movieId: movie.trackId))
+  }
+
+  func toggleFavourite() {
+    if isFavourite.value {
+      FavouriteMoviesHelper.removeFavourite(movieId: movie.trackId)
+    } else {
+      FavouriteMoviesHelper.addFavourite(movieId: movie.trackId)
+    }
+    reloadIsFavourite()
   }
 }

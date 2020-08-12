@@ -60,6 +60,12 @@ class MovieDetailViewController: UIViewController {
         self.detailView.descriptionLabel.text = descriptionString
       })
       .disposed(by: disposeBag)
+
+    viewModel.isFavourite.asDriver()
+      .drive(onNext: { isFavourite in
+        self.favouriteButton.tag = isFavourite ? 1 : 0
+      })
+      .disposed(by: disposeBag)
   }
 
   private func dismiss() {
@@ -71,6 +77,6 @@ class MovieDetailViewController: UIViewController {
   }
 
   @IBAction func favouriteTapped() {
-    favouriteButton.tag = favouriteButton.tag == 0 ? 1 : 0
+    viewModel.toggleFavourite()
   }
 }
