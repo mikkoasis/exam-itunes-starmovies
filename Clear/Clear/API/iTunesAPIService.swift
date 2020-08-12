@@ -9,13 +9,13 @@
 import Alamofire
 import Foundation
 
-final class iTunesAPIService {}
+class iTunesAPIService {}
 
 extension iTunesAPIService: iTunesMoviesService {
   func searchMovies(
     search: String,
-    limit: Int = 50,
-    offset: Int = 0,
+    limit: Int,
+    offset: Int,
     completion: @escaping ([iTunesMovie], Bool) -> Void) {
     AF.request(iTunesAPIRouter.searchMovies(term: search, limit: limit, offset: offset))
       .validate()

@@ -18,7 +18,7 @@ final class MovieListViewModel {
     case reachedEnd
   }
 
-  private let apiService: iTunesAPIService
+  private let apiService: iTunesMoviesService
 
   var moviesCount: Int {
     self.movies.value.count
@@ -29,7 +29,7 @@ final class MovieListViewModel {
 
   private let disposeBag = DisposeBag()
 
-  init(apiService: iTunesAPIService = iTunesAPIService()) {
+  init(apiService: iTunesMoviesService = iTunesAPIService()) {
     self.apiService = apiService
   }
 
@@ -51,20 +51,23 @@ final class MovieListViewModel {
 
     state.accept(.fetching)
 
-    apiService.searchMovies(search: term, offset: offset, completion: { [weak self] movies, reachedEnd in
-      guard let self = self else { return }
-      if offset > 0 {
-        self.movies.accept(self.movies.value + movies)
-      } else {
-        self.movies.accept(movies)
-      }
+    apiService.searchMovies(
+      search: term,
+      offset: offset,
+      completion: { [weak self] movies, reachedEnd in
+        guard let self = self else { return }
+        if offset > 0 {
+          self.movies.accept(self.movies.value + movies)
+        } else {
+          self.movies.accept(movies)
+        }
 
-      if reachedEnd {
-        self.state.accept(.reachedEnd)
-      } else {
-        self.state.accept(.idle)
-      }
-    })
+        if reachedEnd {
+          self.state.accept(.reachedEnd)
+        } else {
+          self.state.accept(.idle)
+        }
+      })
   }
 
   func cellViewModelForMovie(at index: Int) -> MovieCellViewModel? {

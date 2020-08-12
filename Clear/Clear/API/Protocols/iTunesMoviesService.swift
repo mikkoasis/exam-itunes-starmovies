@@ -15,3 +15,12 @@ protocol iTunesMoviesService {
     offset: Int,
     completion: @escaping ([iTunesMovie], Bool) -> Void)
 }
+
+extension iTunesMoviesService {
+  func searchMovies(
+    search: String,
+    offset: Int,
+    completion: @escaping ([iTunesMovie], Bool) -> Void) {
+    searchMovies(search: search, limit: 50, offset: offset, completion: completion)
+  }
+}
