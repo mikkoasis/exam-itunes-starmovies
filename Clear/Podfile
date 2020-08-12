@@ -1,0 +1,17 @@
+platform :ios, '11.0'
+
+target 'Clear' do
+  use_frameworks!
+
+  # Pods for Clear
+  pod 'Alamofire', '~> 5.2'
+  pod 'AlamofireImage', '~> 4.1'
+  pod 'RxSwift', '~> 5.1'
+  pod 'RxCocoa', '~> 5.1'
+  
+  target 'ClearTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
