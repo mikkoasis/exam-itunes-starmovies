@@ -120,7 +120,6 @@ class MovieListViewModelTests: XCTestCase {
     result = viewModel.cellViewModelForMovie(at: 0)
 
     // Then
-
     XCTAssert(result != nil, "Expected cellViewModel to be set")
   }
 
@@ -135,5 +134,38 @@ class MovieListViewModelTests: XCTestCase {
     // Then
 
     XCTAssert(result == nil, "Expected cellViewModel to be nil")
+  }
+
+  func test_getMovieDetailViewModelWithValue() {
+    // Given
+    var result: MovieDetailViewModel?
+    let viewModel = self.viewModel()
+    let expectation = self.expectation(description: #function)
+    expectation.expectedFulfillmentCount = 2
+
+    // When
+    viewModel.movies.asDriver().drive(onNext: { _ in
+      expectation.fulfill()
+    })
+      .disposed(by: disposeBag)
+    viewModel.reloadMovies(with: "Star")
+    wait(for: [expectation], timeout: 2)
+    result = viewModel.movieDetailViewModelForMovie(at: 0)
+
+    // Then
+    XCTAssert(result != nil, "Expected movieDetailViewModel to be set")
+  }
+
+  func test_getMovieDetailViewModelWithInvalidIndex() {
+    // Given
+    var result: MovieDetailViewModel?
+    let viewModel = self.viewModel()
+
+    // When
+    result = viewModel.movieDetailViewModelForMovie(at: 0)
+
+    // Then
+
+    XCTAssert(result == nil, "Expected movieDetailViewModel to be nil")
   }
 }

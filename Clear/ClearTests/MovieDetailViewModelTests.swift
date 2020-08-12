@@ -52,4 +52,29 @@ class MovieDetailViewModelTests: XCTestCase {
     wait(for: [expectation], timeout: 2)
     XCTAssert(result.count > 0, "Expected title to have positive length")
   }
+
+  func test_toggleFavouriteTwice() {
+    // TODO: Should use a mocked UserDefaults
+
+    // Given
+    let viewModel = self.viewModel()
+    var result = viewModel.isFavourite.value
+    let expected = result
+    let expectation = self.expectation(description: #function)
+    expectation.expectedFulfillmentCount = 3
+
+    // When
+    viewModel.isFavourite.asDriver()
+      .drive(onNext: { isFavourite in
+        result = isFavourite
+        expectation.fulfill()
+      })
+      .disposed(by: disposeBag)
+    viewModel.toggleFavourite()
+    viewModel.toggleFavourite()
+
+    // Then
+    wait(for: [expectation], timeout: 2)
+    XCTAssert(result == expected, "Expected isFavourite to remain the same")
+  }
 }
