@@ -84,7 +84,7 @@ class AddFavouriteButton: UIButton {
     didSet {
       if tag == State.removeFavourite.rawValue {
         backgroundColor = UIColor(named: "ButtonRedColor")
-        setTitle("Remove to favourites", for: .normal)
+        setTitle("Remove from favourites", for: .normal)
       } else {
         backgroundColor = UIColor(named: "ButtonGreenColor")
         setTitle("Add to favourites", for: .normal)
