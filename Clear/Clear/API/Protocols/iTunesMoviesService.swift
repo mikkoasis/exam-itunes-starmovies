@@ -13,5 +13,5 @@ protocol iTunesMoviesService {
     search: String,
     limit: Int,
     offset: Int,
-    completion: @escaping ([iTunesMovie]) -> Void)
+    completion: @escaping ([iTunesMovie], Bool) -> Void)
 }

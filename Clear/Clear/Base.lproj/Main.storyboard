@@ -19,7 +19,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EAB-gY-VYq">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="eEa-1a-c07">
+                                <view key="tableFooterView" contentMode="scaleToFill" id="eEa-1a-c07" customClass="MovieListFooterView" customModule="Clear" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="137" width="414" height="60"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -32,6 +32,9 @@
                                         <constraint firstItem="tiu-9G-WgY" firstAttribute="centerY" secondItem="eEa-1a-c07" secondAttribute="centerY" id="WmA-FJ-hw0"/>
                                         <constraint firstItem="tiu-9G-WgY" firstAttribute="centerX" secondItem="eEa-1a-c07" secondAttribute="centerX" id="c5O-Gt-jRo"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="activityIndicatorView" destination="tiu-9G-WgY" id="ivU-0b-roy"/>
+                                    </connections>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" id="Ws7-Lm-pmU" customClass="MovieTableViewCell" customModule="Clear" customModuleProvider="target">
@@ -118,6 +121,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="J8I-2W-Cq7"/>
                     <connections>
+                        <outlet property="footerView" destination="eEa-1a-c07" id="l6Z-rE-71A"/>
                         <outlet property="tableView" destination="EAB-gY-VYq" id="HX0-3h-xki"/>
                     </connections>
                 </viewController>

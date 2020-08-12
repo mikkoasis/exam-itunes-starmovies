@@ -28,7 +28,7 @@ class MovieTableViewCell: UITableViewCell {
     super.awakeFromNib()
   }
 
-  func configure() {
+  private func configure() {
     guard let viewModel = viewModel else { return }
     titleLabel.text = viewModel.title
     genreLabel.text = viewModel.genre

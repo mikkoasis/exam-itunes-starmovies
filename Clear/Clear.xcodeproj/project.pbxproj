@@ -14,6 +14,7 @@
 		C067765024E3C118003DCEC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C067764F24E3C118003DCEC4 /* Assets.xcassets */; };
 		C067765324E3C118003DCEC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C067765124E3C118003DCEC4 /* LaunchScreen.storyboard */; };
 		C067765E24E3C118003DCEC4 /* ClearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067765D24E3C118003DCEC4 /* ClearTests.swift */; };
+		C09D1C2124E439D600808725 /* MovieListFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09D1C2024E439D600808725 /* MovieListFooterView.swift */; };
 		C0EDB15524E3CFF7007E5CF7 /* iTunesAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EDB15424E3CFF7007E5CF7 /* iTunesAPIService.swift */; };
 		C0EDB15A24E3D9DE007E5CF7 /* iTunesAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EDB15924E3D9DE007E5CF7 /* iTunesAPIRouter.swift */; };
 		C0EDB15D24E3DDFC007E5CF7 /* iTunesMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EDB15C24E3DDFC007E5CF7 /* iTunesMovie.swift */; };
@@ -50,6 +51,7 @@
 		C067765924E3C118003DCEC4 /* ClearTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClearTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C067765D24E3C118003DCEC4 /* ClearTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearTests.swift; sourceTree = "<group>"; };
 		C067765F24E3C118003DCEC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C09D1C2024E439D600808725 /* MovieListFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListFooterView.swift; sourceTree = "<group>"; };
 		C0EDB15424E3CFF7007E5CF7 /* iTunesAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesAPIService.swift; sourceTree = "<group>"; };
 		C0EDB15924E3D9DE007E5CF7 /* iTunesAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesAPIRouter.swift; sourceTree = "<group>"; };
 		C0EDB15C24E3DDFC007E5CF7 /* iTunesMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesMovie.swift; sourceTree = "<group>"; };
@@ -146,6 +148,14 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C09D1C1F24E439B300808725 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C09D1C2024E439D600808725 /* MovieListFooterView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C0EDB15324E3CFB9007E5CF7 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +188,7 @@
 				C0EDB16224E4116F007E5CF7 /* MovieListViewController.swift */,
 				C0EDB16424E41274007E5CF7 /* MovieListViewModel.swift */,
 				C0EDB16924E414D1007E5CF7 /* Cells */,
+				C09D1C1F24E439B300808725 /* Views */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -376,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C09D1C2124E439D600808725 /* MovieListFooterView.swift in Sources */,
 				C0EDB15524E3CFF7007E5CF7 /* iTunesAPIService.swift in Sources */,
 				C0EDB15D24E3DDFC007E5CF7 /* iTunesMovie.swift in Sources */,
 				C0EDB16B24E414EB007E5CF7 /* MovieTableViewCell.swift in Sources */,

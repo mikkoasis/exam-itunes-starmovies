@@ -16,16 +16,18 @@ extension iTunesAPIService: iTunesMoviesService {
     search: String,
     limit: Int = 50,
     offset: Int = 0,
-    completion: @escaping ([iTunesMovie]) -> Void) {
+    completion: @escaping ([iTunesMovie], Bool) -> Void) {
     AF.request(iTunesAPIRouter.searchMovies(term: search, limit: limit, offset: offset))
       .validate()
       .responseDecodable(of: itunesMoviesData.self) { response in
         switch response.result {
         case .success(let iTunesData):
-          completion(iTunesData.results)
+          let results = iTunesData.results
+          let reachedEnd = results.count < limit
+          completion(results, reachedEnd)
         case .failure(let error):
           print("\(error.localizedDescription)")
-          completion([iTunesMovie]())
+          completion([iTunesMovie](), true)
         }
       }
   }

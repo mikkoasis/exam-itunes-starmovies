@@ -11,6 +11,13 @@ import RxCocoa
 import RxSwift
 
 final class MovieListViewModel {
+  public enum MovieListState {
+    case initial
+    case fetching
+    case idle
+    case reachedEnd
+  }
+
   private let apiService: iTunesAPIService
 
   var moviesCount: Int {
@@ -18,6 +25,7 @@ final class MovieListViewModel {
   }
 
   let movies = BehaviorRelay<[iTunesMovie]>(value: [])
+  let state = BehaviorRelay<MovieListState>(value: .initial)
 
   private let disposeBag = DisposeBag()
 
@@ -30,16 +38,31 @@ final class MovieListViewModel {
   }
 
   func loadMoreMovies(with term: String) {
+    if state.value == .reachedEnd {
+      return
+    }
     loadMovies(with: term, offset: movies.value.count)
   }
 
   private func loadMovies(with term: String, offset: Int) {
-    apiService.searchMovies(search: term, offset: offset, completion: { [weak self] movies in
+    if state.value == .fetching {
+      return
+    }
+
+    state.accept(.fetching)
+
+    apiService.searchMovies(search: term, offset: offset, completion: { [weak self] movies, reachedEnd in
       guard let self = self else { return }
       if offset > 0 {
         self.movies.accept(self.movies.value + movies)
       } else {
         self.movies.accept(movies)
+      }
+
+      if reachedEnd {
+        self.state.accept(.reachedEnd)
+      } else {
+        self.state.accept(.idle)
       }
     })
   }

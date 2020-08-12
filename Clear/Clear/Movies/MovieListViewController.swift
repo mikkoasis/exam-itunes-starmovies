@@ -17,12 +17,14 @@ class MovieListViewController: UIViewController {
   private let disposeBag = DisposeBag()
 
   @IBOutlet var tableView: UITableView!
+  @IBOutlet var footerView: MovieListFooterView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     title = searchTerm
 
+    setupTableViewRefresh()
     setupBindings()
   }
 
@@ -30,8 +32,16 @@ class MovieListViewController: UIViewController {
     super.viewWillAppear(animated)
 
     if viewModel.moviesCount == 0 {
-      viewModel.reloadMovies(with: searchTerm)
+      reloadMovies()
     }
+  }
+
+  private func setupTableViewRefresh() {
+    tableView.refreshControl = UIRefreshControl()
+    tableView.refreshControl?.addTarget(
+      self,
+      action: #selector(handleRefreshControl),
+      for: .valueChanged)
   }
 
   private func setupBindings() {
@@ -41,6 +51,33 @@ class MovieListViewController: UIViewController {
         self.tableView.reloadData()
       })
       .disposed(by: disposeBag)
+
+    viewModel.state.asDriver()
+      .drive(onNext: { [weak self] state in
+        guard let self = self else { return }
+        switch state {
+          case .fetching:
+            self.footerView.activityIndicatorView.startAnimating()
+          case .initial, .idle:
+            self.tableView.refreshControl?.endRefreshing()
+          case .reachedEnd:
+            self.footerView.activityIndicatorView.stopAnimating()
+            self.tableView.refreshControl?.endRefreshing()
+        }
+      })
+      .disposed(by: disposeBag)
+  }
+
+  private func reloadMovies() {
+    viewModel.reloadMovies(with: searchTerm)
+  }
+
+  private func loadMoreMovies() {
+    viewModel.loadMoreMovies(with: searchTerm)
+  }
+
+  @objc private func handleRefreshControl() {
+    reloadMovies()
   }
 }
 
@@ -68,5 +105,11 @@ extension MovieListViewController: UITableViewDataSource {
 extension MovieListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+  }
+
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if indexPath.row == viewModel.moviesCount - 1 {
+      loadMoreMovies()
+    }
   }
 }
