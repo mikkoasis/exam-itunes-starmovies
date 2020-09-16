@@ -1,4 +1,4 @@
-# Clear iOS Developer Exam
+# iOS Developer App Coding Exam
 
 ![Main screen](https://user-images.githubusercontent.com/1173902/90076802-3f1a9a00-dd33-11ea-8964-14d46e262cf1.png)
 ![Main screen dark](https://user-images.githubusercontent.com/1173902/90076704-05499380-dd33-11ea-818b-d5ec0a2ebd0e.png)
